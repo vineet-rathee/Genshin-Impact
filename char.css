@@ -1,0 +1,276 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(16, 233, 233);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(252, 250, 250);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Typography & Links */
+a {
+    color: rgb(243, 243, 246);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: rgb(226, 226, 224);
+}
+a:active {
+    color: rgb(224, 19, 19);
+}
+
+/* Navbar & CTA */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+.nav-links a {
+    margin: 0 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.nav-links a:hover {
+    color: rgb(16, 233, 233);
+}
+.cta-btn {
+    background-color: #fce14b;
+    color: #111 !important;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.2s, background-color 0.2s;
+}
+.cta-btn:hover {
+    transform: scale(1.05);
+    background-color: #fff080;
+}
+
+/* Logo */
+.logo {
+    margin: 30px auto;
+    padding: 0 20px;
+}
+.logo img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+.logo img:hover {
+    transform: scale(1.02);
+}
+
+/* Elements Bar */
+.elements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50px;
+    padding: 15px 30px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+}
+.elements img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+.elements img:hover {
+    transform: scale(1.2);
+}
+
+/* ... keep your existing Navbar and Body styles ... */
+
+/* Updated Character Container for Layered Stacking Effect */
+.character-container {
+    position: sticky; /* This makes it stick while scrolling */
+    top: 100px;       /* Distance from the top of the screen (adjust based on Navbar height) */
+    width: 95%;
+    max-width: 1100px;
+    margin: 0 auto 50px auto; /* Bottom margin creates space for the next card to slide up */
+    border-radius: 20px;
+    background-color: #111;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.5); /* Shadow on top helps the "layered" look */
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Adds a slight "dim" effect to cards underneath */
+.character-container:not(:last-child) {
+    /* This ensures they stay visible but look layered */
+    margin-bottom: 150px; 
+}
+
+/* Ensure the overlay image follows the sticky behavior */
+.overlay-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+/* ... keep the rest of your CSS ... */
+
+.character-container:hover .overlay-image {
+    opacity: 0;
+}
+
+.character-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.char-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.char-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 350px;
+    transition: transform 0.3s;
+}
+.char-image img:hover {
+    transform: scale(1.05);
+}
+
+.char-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+.char-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+.char-name:hover {
+    font-family: cursive;
+}
+
+.gp {
+    display: flex;
+    gap: 5px;
+}
+.gp img {
+    height: 35px;
+    width: auto;
+}
+
+.char-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.weapon-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+}
+
+.gif-img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+/* Responsive Media Queries - Desktop/Tablet Layout */
+@media (min-width: 850px) {
+    .elements img {
+        height: 70px;
+        width: 70px;
+    }
+    
+    .character-card {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px 50px;
+    }
+
+    .char-image {
+        width: 40%;
+        justify-content: flex-start;
+    }
+    .char-image img {
+        max-height: 450px;
+    }
+
+    .char-details {
+        width: 55%;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .char-name {
+        font-size: 3.5rem;
+    }
+
+    .char-media {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .char-name {
+        font-size: 2rem;
+    }
+    .elements img {
+        height: 40px;
+        width: 40px;
+    }
+}
